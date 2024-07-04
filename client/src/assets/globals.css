@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+:root {
+  --color-primary: #092b84;
+  --color-primary-blue: #43719c;
+  --color-secondary: #d3d8db;
+  --color-whitesmoke: #faf4f4;
+  --color-red: #df281d;
+  --color-black: #2e2b2b;
+  --color-dimgrey: #5f4f4f;
+  --color-white: #ffffff;
+  --color-right-green: #6ffc6c;
+}
+
+body {
+  font-size: 1.4rem;
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-black);
+}
+
+.main {
+  max-width: 1800px;
+  margin: 0 auto;
+}

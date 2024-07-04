@@ -1,0 +1,99 @@
+.ls-container-login {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 150px;
+  width: 600px;
+  background: var(--color-whitesmoke);
+  padding-bottom: 3rem;
+}
+
+.ls-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.ls-text {
+  color: var(--color-primary-blue);
+  font-size: 4.8rem;
+  font-weight: 700;
+}
+
+.ls-underline {
+  width: 7rem;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 9px;
+}
+
+.ls-inputs {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.ls-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+  width: 45rem;
+  background: var(--color-white);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.ls-input .ls-icon {
+  margin-right: 10px;
+}
+
+.ls-input input {
+  height: 4rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: var(--color-secondary);
+}
+
+.ls-error {
+  color: var(--color-red);
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.ls-forgot-password span {
+  color: var(--color-primary-blue);
+  cursor: pointer;
+}
+
+.ls-submit-container {
+  display: flex;
+  gap: 30px;
+  margin: 20px auto;
+}
+
+.ls-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 5rem;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ls-gray {
+  background: var(--color-right-green);
+  color: var(--color-dimgrey);
+}
