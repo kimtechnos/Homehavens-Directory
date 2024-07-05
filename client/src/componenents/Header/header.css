@@ -35,12 +35,12 @@
 
 @media screen and (max-width: 53.937em) {
   .nav-signup {
-    padding: 3px;
+    padding: 4px;
   }
 
-  /* .nav-login {
-    padding: 3px;
-  } */
+  .nav-login {
+    padding: 4px;
+  }
 }
 
 .nav-login:hover {
@@ -50,7 +50,7 @@
 .nav-items a {
   color: var(--color-white);
   font-size: 2.2rem;
-  margin: 4rem;
+  margin: 2rem;
   position: relative;
   text-transform: capitalize;
   font-weight: 600;

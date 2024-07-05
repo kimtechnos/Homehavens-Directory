@@ -25,9 +25,9 @@ const Header = () => {
         <Link to="/contact" onClick={handleLinkClick}>
           Contact
         </Link>
-        {/* <Link to="/singup" className="nav-signup" onClick={handleLinkClick}>
+        <Link to="/singup" className="nav-signup" onClick={handleLinkClick}>
           sing up
-        </Link> */}
+        </Link>
         <Link to="/login" className="nav-login" onClick={handleLinkClick}>
           login
         </Link>

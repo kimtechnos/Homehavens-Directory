@@ -60,6 +60,7 @@
   outline: none;
   border-radius: 5px;
   background-color: var(--color-secondary);
+  padding: 0 1rem;
 }
 
 .ls-error {
@@ -75,6 +76,7 @@
 
 .ls-submit-container {
   display: flex;
+  justify-content: center;
   gap: 30px;
   margin: 20px auto;
 }
@@ -91,6 +93,11 @@
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ls-submit:hover {
+  background-color:var(--color-red);
 }
 
 .ls-gray {
