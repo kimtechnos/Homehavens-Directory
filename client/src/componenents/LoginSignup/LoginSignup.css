@@ -1,11 +1,13 @@
-.ls-container-login {
+.ls-container-signup, .ls-container-login {
   display: flex;
   flex-direction: column;
   margin: auto;
   margin-top: 150px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   background: var(--color-whitesmoke);
-  padding-bottom: 3rem;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .ls-header {
@@ -14,17 +16,17 @@
   align-items: center;
   gap: 9px;
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .ls-text {
   color: var(--color-primary-blue);
-  font-size: 4.8rem;
+  font-size: 2.4rem;
   font-weight: 700;
 }
 
 .ls-underline {
-  width: 7rem;
+  width: 5rem;
   height: 3px;
   background: var(--color-primary);
   border-radius: 9px;
@@ -32,21 +34,23 @@
 
 .ls-inputs {
   display: flex;
-  align-items: center;
-  margin: auto;
   flex-direction: column;
-  gap: 2.5rem;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .ls-input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: auto;
-  width: 45rem;
+  width: 100%;
+  max-width: 100%;
   background: var(--color-white);
   border-radius: 6px;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 .ls-input .ls-icon {
@@ -61,6 +65,7 @@
   border-radius: 5px;
   background-color: var(--color-secondary);
   padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .ls-error {
@@ -90,17 +95,63 @@
   color: var(--color-white);
   background-color: var(--color-primary);
   border-radius: 50px;
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .ls-submit:hover {
-  background-color:var(--color-red);
+  background-color: var(--color-red);
 }
 
 .ls-gray {
   background: var(--color-right-green);
   color: var(--color-dimgrey);
+}
+
+
+
+@media screen and(max-width: 48em) {
+  .ls-container-signup, .ls-container-login {
+    margin-top: 100px;
+    padding: 1.5rem;
+  }
+
+  .ls-text {
+    font-size: 2rem;
+  }
+
+  .ls-input input {
+    height: 3.5rem;
+    padding: 0 0.75rem;
+  }
+
+  .ls-submit {
+    width: 180px;
+    height: 4.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and(max-width:30em) {
+  .ls-container-signup, .ls-container-login {
+    margin-top: 50px;
+    padding: 1rem;
+  }
+
+  .ls-text {
+    font-size: 1.5rem;
+  }
+
+  .ls-input input {
+    height: 3rem;
+    padding: 0 0.5rem;
+  }
+
+  .ls-submit {
+    width: 150px;
+    height: 4rem;
+    font-size: 1rem;
+  }
 }
