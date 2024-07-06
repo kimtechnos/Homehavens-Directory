@@ -1,10 +1,12 @@
-
 import React, { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import "./LoginSignup.css";
+import { apiUrl } from "../../utils/config";
+import { useNavigate } from "react-router-dom";
+
 
 const validationSchema = yup.object({
   emailAddress: yup
@@ -17,28 +19,34 @@ const validationSchema = yup.object({
     .required("Password is required"),
 });
 
+
 function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+   const navigate = useNavigate();
   const handleSubmit = async (values) => {
     setLoading(true);
-    setError("");
+    setError(false);
     try {
-      const response = await fetch("http://localhost:3000/api/users/register", {
+      const response = await fetch(`${apiUrl}/api/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
+        credentials:"include"
       });
+      console.log(response)
 
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
 
-     
-      console.log("User registered successfully");
+      // console.log("User registered successfully");
+      const data = await response.json();
+      navigate("/");
+      // console.log(data)
+
     } catch (e) {
       setError(e.message);
     } finally {
@@ -107,4 +115,3 @@ function Login() {
 }
 
 export default Login;
-

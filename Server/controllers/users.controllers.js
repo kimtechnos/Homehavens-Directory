@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
-
+import jwt from "jsonwebtoken";
 const prisma = new PrismaClient();
 
 export const createUser = async (req, res) => {
@@ -17,6 +17,43 @@ export const createUser = async (req, res) => {
     res
       .status(201)
       .json({ success: true, message: "user registered successfully" });
+  } catch (e) {
+    res.status(500).json({ success: false, message: e.message });
+  }
+};
+
+export const loginUser = async (req, res) => {
+  const { emailAddress, password } = req.body;
+  try {
+    const user = await prisma.user.findFirst({
+      where: { emailAddress },
+    });
+    // res.json(user);
+    if (user) {
+      /*check password*/
+      const passwordMatch = bcrypt.compareSync(password, user.password);
+      if (passwordMatch === true) {
+        const payload = {
+          id: user.id,
+          fullName: user.fullName,
+          emailAddress: user.emailAddress,
+        };
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+          expiresIn: "10min",
+        });
+        res.cookie("access_token", token);
+        res.status(200).json({ success: true, data: user });
+        // res.json("logged in successfully")
+      } else {
+        res
+          .status(400)
+          .json({ success: false, message: "wrong login credentials" });
+      }
+    } else {
+      res
+        .status(400)
+        .json({ success: false, message: "wrong login cresentials" });
+    }
   } catch (e) {
     res.status(500).json({ success: false, message: e.message });
   }

@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { apiUrl } from "../../utils/config";
-import axios from 'axios'; 
+import axios from "axios";
 
 import "./LoginSignup.css";
 
@@ -35,14 +35,12 @@ function Signup() {
     setError("");
     try {
       const response = await axios.post(`${apiUrl}/api/users/register`, values);
-      
-      console.log(response); 
+
+      console.log(response);
       const data = response.data;
 
-  
-
       console.log("User registered successfully");
-      navigate("/login"); 
+      navigate("/login");
     } catch (e) {
       console.error(e);
       setError(e.message || "An unexpected error occurred");
