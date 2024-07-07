@@ -7,7 +7,6 @@ import "./LoginSignup.css";
 import { apiUrl } from "../../utils/config";
 import { useNavigate } from "react-router-dom";
 
-
 const validationSchema = yup.object({
   emailAddress: yup
     .string()
@@ -19,11 +18,10 @@ const validationSchema = yup.object({
     .required("Password is required"),
 });
 
-
 function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleSubmit = async (values) => {
     setLoading(true);
     setError(false);
@@ -34,9 +32,9 @@ function Login() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
-        credentials:"include"
+        credentials: "include",
       });
-      console.log(response)
+      console.log(response);
 
       if (!response.ok) {
         throw new Error("Something went wrong");
@@ -46,7 +44,6 @@ function Login() {
       const data = await response.json();
       navigate("/");
       // console.log(data)
-
     } catch (e) {
       setError(e.message);
     } finally {

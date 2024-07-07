@@ -40,21 +40,17 @@
 
 .contact form .form-group input,
 .contact form .form-group textarea {
- 
   width: 300px;
   padding: 10px;
   border-radius: 5px;
   font-size: 1rem;
   background-color: var(--color-secondary);
 }
-@media (max-width:30.187em){
+@media (max-width: 30.187em) {
   .contact form .form-group input,
-.contact form .form-group textarea{
-  width: 100%;
- 
-}
-  
-  
+  .contact form .form-group textarea {
+    width: 100%;
+  }
 }
 
 .contact form textarea {
@@ -75,24 +71,20 @@
   background-color: var(--color-primary-blue);
 }
 
-
-
-
-
 @media (max-width: 30em) {
   .contact form {
     padding: 1rem;
   }
-  
+
   .contact form h4 {
     font-size: 1rem;
   }
-  
+
   .contact form .form-group input,
   .contact form .form-group textarea {
     font-size: 0.75rem;
     text-align: center;
-   
+
     padding: 6px;
   }
 

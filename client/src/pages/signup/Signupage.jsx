@@ -1,14 +1,12 @@
-import React from 'react'
-import Signup from '../../componenents/LoginSignup/Signup';
-
+import React from "react";
+import Signup from "../../componenents/LoginSignup/Signup";
 
 const Signupage = () => {
   return (
     <div>
-    <Signup/>
-      
+      <Signup />
     </div>
-  )
-}
+  );
+};
 
 export default Signupage;

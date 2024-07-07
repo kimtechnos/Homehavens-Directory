@@ -28,9 +28,9 @@ const Contactus = () => {
     setSuccess("");
     try {
       const response = await axios.post(`${apiUrl}/api/contact`, values);
-        console.log(response);
-        const data =(response.data);
-      
+      console.log(response);
+      const data = response.data;
+
       if (response.data.success) {
         setSuccess("Your message has been sent successfully!");
         formik.resetForm();
