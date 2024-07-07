@@ -7,7 +7,6 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { apiUrl } from "../../utils/config";
 import axios from "axios";
-
 import "./LoginSignup.css";
 
 const validationSchema = yup.object({

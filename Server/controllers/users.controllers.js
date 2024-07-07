@@ -39,9 +39,9 @@ export const loginUser = async (req, res) => {
           emailAddress: user.emailAddress,
         };
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
-          expiresIn: "10min",
+          expiresIn: "100min",
         });
-        res.cookie("access_token", token);
+        res.cookie("access_token", token, { httOnly: true });
         res.status(200).json({ success: true, data: user });
         // res.json("logged in successfully")
       } else {

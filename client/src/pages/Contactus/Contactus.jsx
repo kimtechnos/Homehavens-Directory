@@ -3,7 +3,10 @@ import { useFormik } from "formik";
 import img from "../../assets/red-vector-illustration-banner-rent-260nw-1639612453.webp";
 import Banner from "../../componenents/Banner/Banner";
 import * as Yup from "yup";
+import { apiUrl } from "../../utils/config";
+import axios from "axios";
 import "./contact.css";
+import { useState } from "react";
 
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Full Name is required"),
@@ -15,18 +18,42 @@ const validationSchema = Yup.object({
 });
 
 const Contactus = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleSubmit = async (values) => {
+    setLoading(true);
+    setError("");
+    setSuccess("");
+    try {
+      const response = await axios.post(`${apiUrl}/api/contact`, values);
+        console.log(response);
+        const data =(response.data);
+      
+      if (response.data.success) {
+        setSuccess("Your message has been sent successfully!");
+        formik.resetForm();
+      } else {
+        setError("Failed to send message. Please try again.");
+      }
+    } catch (e) {
+      console.error(e);
+      setError(e.message || "An unexpected error occurred");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
       fullName: "",
-      email: "",
+      emailAddress: "",
       subject: "",
       message: "",
     },
     validationSchema,
-    onSubmit: (values) => {
-     
-      console.log(values);
-    },
+    onSubmit: handleSubmit,
   });
 
   return (
@@ -55,7 +82,7 @@ const Contactus = () => {
               ) : null}
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="emailAddress">Email</label>
               <input
                 type="email"
                 name="emailAddress"
@@ -98,7 +125,11 @@ const Contactus = () => {
               ) : null}
             </div>
             <div className="form-group">
-              <button type="submit">Submit</button>
+              <button type="submit" disabled={loading}>
+                {loading ? "Loading..." : "submit"}
+              </button>
+              {error && <p className="ls-error">{error}</p>}
+              {success && <p className="ls-success">{success}</p>}
             </div>
           </form>
         </div>

@@ -26,7 +26,7 @@ const Header = () => {
           Contact
         </Link>
         <Link to="/singup" className="nav-signup" onClick={handleLinkClick}>
-          sing up
+          Sign up
         </Link>
         <Link to="/login" className="nav-login" onClick={handleLinkClick}>
           login
