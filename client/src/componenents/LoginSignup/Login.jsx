@@ -42,7 +42,7 @@ function Login() {
 
       // console.log("User registered successfully");
       const data = await response.json();
-      navigate("/");
+      navigate("/home");
       // console.log(data)
     } catch (e) {
       setError(e.message);

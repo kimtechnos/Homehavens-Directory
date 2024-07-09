@@ -13,19 +13,19 @@ const Header = () => {
     <div className="Navbar">
       <span className="nav-logo">HomeHaven</span>
       <div className={`nav-items ${isOpen ? "open" : ""}`}>
-        <Link to="/" onClick={handleLinkClick}>
+        <Link to="/home" onClick={handleLinkClick}>
           Home
         </Link>
         <Link to="/about" onClick={handleLinkClick}>
           About
         </Link>
         <Link to="/services" onClick={handleLinkClick}>
-          Services
+          Homes
         </Link>
         <Link to="/contact" onClick={handleLinkClick}>
           Contact
         </Link>
-        <Link to="/singup" className="nav-signup" onClick={handleLinkClick}>
+        <Link to="/" className="nav-signup" onClick={handleLinkClick}>
           Sign up
         </Link>
         <Link to="/login" className="nav-login" onClick={handleLinkClick}>

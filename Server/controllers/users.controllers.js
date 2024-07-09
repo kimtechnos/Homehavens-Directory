@@ -58,3 +58,24 @@ export const loginUser = async (req, res) => {
     res.status(500).json({ success: false, message: e.message });
   }
 };
+export const getAllusers = async (req, res) => {
+  try {
+    const users = await prisma.user.findMany();
+    res.status(200).json(users);
+  } catch (e) {
+    res.status(500).json({ success: false, message: e.message });
+  }
+};
+export const deleteUser = async (req, res) => {
+  // res.send("delete user")
+  const id = req.params.id;
+  try {
+    const deleteUser = await prisma.user.delete({
+      where: { id: id },
+    });
+    res.status(200).json(deleteUser);
+  } catch (e) {
+    res.status(500).json({ success: false, message: e.message });
+  }
+};
+

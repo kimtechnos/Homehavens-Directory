@@ -21,7 +21,7 @@ function PropertyCard() {
     {
       cover:
         "../../../src/assets/family_home_24dp_FILL0_wght400_GRAD0_opsz24.png",
-      name: "Villa & Condo",
+      name: "Hotel & restaurant",
     },
   ];
 

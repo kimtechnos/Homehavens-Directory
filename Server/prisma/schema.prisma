@@ -18,7 +18,7 @@ model User {
   fullName    String
   emailAddress String   @unique
   password    String
-  contacts    Contact[]
+  // contacts    Contact[]
   @@map("users_table")
 }
 
@@ -28,7 +28,18 @@ model Contact {
   emailAddress String
   subject     String
   message     String
-  userId      String
-  user        User @relation(fields: [userId], references: [id])
+  // userId      String
+  // user        User @relation(fields: [userId], references: [id])
   @@map("contacts_table")
+}
+model Home {
+  id           String  @id @default(uuid())
+  homeTitle    String  @map("homeTitle")
+  homeLocation String  @map("homeLocation")
+  homeType     String    @map("homeType")
+  homePrice    Float   @map("homePrice")
+
+  @@index([homeType]) 
+  @@map("homes_table")
+  
 }

@@ -1,22 +1,18 @@
+
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 export const createContact = async (req, res) => {
-  //   res.send("making a contact req");
-  const user = req.user;
-  const { fullName, emailAddress, subject, message } = req.body;
-  const userId = user.id;
+  // const userId = req.user.id;
   // res.json(user);
+  // console.log("user"+"userid",userId)
   try {
-    const newContact = await prisma.contact.create({
+    const { fullName, emailAddress, subject, message } = req.body;
+    const createContact = await prisma.contact.create({
       data: {
-        fullName: fullName,
-        emailAddress: emailAddress,
-        subject: subject,
-        message: message,
-        userId: userId,
-      },
-    });
-    res.status(201).json({ success: true, data: newContact });
+        fullName, emailAddress, subject, message
+      }
+    })
+    res.status(200).json({ success: true, data: createContact });
   } catch (e) {
     console.log(e.message);
     res.status(500).json({ success: false, message: "server error" });
