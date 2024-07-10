@@ -72,3 +72,12 @@
   font-weight: bold;
   color:var(--color-red); 
 }
+.delete-btn{
+  background-color:var(--color-red);
+  border: none;
+  padding: 2px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  cursor:progress;
+}
