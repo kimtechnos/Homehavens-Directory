@@ -4,6 +4,7 @@ import img from "../../assets/red-vector-illustration-banner-rent-260nw-16396124
 import Banner from "../../componenents/Banner/Banner";
 import axios from "axios";
 import { apiUrl } from "../../utils/config";
+
 import ServicesCard from "./ServicesCard";
 
 const Services = () => {
@@ -14,6 +15,7 @@ const Services = () => {
       try {
         const getHomes = await axios.get(`${apiUrl}/api/homes`);
         setHomes(getHomes.data);
+        console.log(getHomes.data)
       } catch (error) {
         console.log(error);
       }
@@ -42,6 +44,7 @@ const Services = () => {
             <p>Loading data...</p>
           )}
         </div>
+        
       </div>
     </>
   );

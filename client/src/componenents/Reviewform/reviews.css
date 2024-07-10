@@ -1,0 +1,164 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10rem;
+    width: 100%;
+    max-width: 600px;
+    background: var(--color-whitesmoke);
+    padding: 2rem;
+    box-sizing: border-box;
+    
+}
+.form-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+    max-width: 100%;
+    color: red;
+
+}
+.form-title{
+    color: var(--color-primary-blue);
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+.success-message{
+    color: green;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+   
+    
+}
+.form-underline{
+    width: 5rem;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 9px;
+}
+.form-inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+.form-input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    background: var(--color-white);
+    border-radius: 6px;
+    padding: 1rem;
+     box-sizing: border-box;
+}
+
+
+.form-input input,
+.form-input textarea {
+  height: 4rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: var(--color-secondary);
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.form-input textarea {
+  height: 8rem; /* Adjust the height for the textarea */
+  resize: none; /* Prevent resizing */
+}
+
+.form-submit-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px auto;
+}
+
+.form-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 5rem;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-radius: 50px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-submit:hover {
+  background-color: var(--color-red);
+}
+
+.form-submit-disabled {
+  background: var(--color-right-green);
+  color: var(--color-dimgrey);
+}
+
+@media screen and (max-width: 48em) {
+  .form-container {
+    margin-top: 100px;
+    padding: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 2rem;
+  }
+
+  .form-input input,
+  .form-input textarea {
+    height: 3.5rem;
+    padding: 0 0.75rem;
+  }
+
+  .form-submit {
+    width: 180px;
+    height: 4.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .form-container {
+    margin-top: 50px;
+    padding: 1rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .form-input input,
+  .form-input textarea {
+    height: 3rem;
+    padding: 0 0.5rem;
+  }
+
+  .form-submit {
+    width: 150px;
+    height: 4rem;
+    font-size: 1rem;
+  }
+}

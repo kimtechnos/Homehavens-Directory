@@ -5,6 +5,7 @@ import cors from "cors";
 import contactRouter from "./routes/contact.routes.js";
 import homesRouter from "./routes/homes.routes.js"
 import cookieParser from "cookie-parser";
+import  ReviewsRouter from "./routes/reviews.routes.js"
 
 config();
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/users", usersRouter);
 app.use("/api/contact", contactRouter);
 app.use("/api/homes", homesRouter);
+app.use("/api/review",ReviewsRouter)
 
 
 app.listen(3000, () => {

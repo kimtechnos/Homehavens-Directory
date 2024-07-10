@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useFormik } from "formik";
@@ -6,6 +6,7 @@ import * as yup from "yup";
 import "./LoginSignup.css";
 import { apiUrl } from "../../utils/config";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
 
 const validationSchema = yup.object({
   emailAddress: yup
@@ -22,6 +23,8 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+   const { login } = useContext(AuthContext);
+
   const handleSubmit = async (values) => {
     setLoading(true);
     setError(false);
@@ -42,7 +45,16 @@ function Login() {
 
       // console.log("User registered successfully");
       const data = await response.json();
-      navigate("/home");
+      if (data.token){
+        localStorage.setItem("token", data.token);
+         login();
+         navigate("/home");
+      }
+      else{
+        throw new Error("token not received");
+      }
+    
+    
       // console.log(data)
     } catch (e) {
       setError(e.message);

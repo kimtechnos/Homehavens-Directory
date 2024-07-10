@@ -43,3 +43,11 @@ model Home {
   @@map("homes_table")
   
 }
+model Review {
+  id        String @id @default(uuid())
+  title     String
+  review    String
+  name      String
+
+  @@map("reviews_table")
+}

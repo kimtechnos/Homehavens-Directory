@@ -1,9 +1,12 @@
+// src/components/Header/Header.js
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import { AuthContext } from "../AuthContext";
 import "./header.css";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated, logout } = useContext(AuthContext);
 
   const handleLinkClick = () => {
     setIsOpen(false);
@@ -25,12 +28,18 @@ const Header = () => {
         <Link to="/contact" onClick={handleLinkClick}>
           Contact
         </Link>
-        <Link to="/" className="nav-signup" onClick={handleLinkClick}>
-          Sign up
-        </Link>
-        <Link to="/login" className="nav-login" onClick={handleLinkClick}>
-          login
-        </Link>
+        {!isAuthenticated ? (
+          <>
+            <Link to="/" className="nav-signup" onClick={handleLinkClick}>
+              Sign up
+            </Link>
+            <Link to="/login" className="nav-login" onClick={handleLinkClick}>
+              Login
+            </Link>
+          </>
+        ) : (
+          <button className="nav-login" onClick={logout}>Logout</button>
+        )}
       </div>
       <div
         className={`nav-toggle ${isOpen ? "open" : ""}`}
@@ -41,5 +50,4 @@ const Header = () => {
     </div>
   );
 };
-
 export default Header;
